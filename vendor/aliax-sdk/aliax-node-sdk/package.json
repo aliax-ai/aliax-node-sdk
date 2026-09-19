@@ -1,0 +1,74 @@
+{
+  "name": "aliax",
+  "version": "1.0.5",
+  "description": "Aliax SDK (TypeScript / Node) — the real-time interceptor middleware for visual web agents. TS port of the Python SDK.",
+  "license": "MIT",
+  "author": "Aliax <support@aliax.xyz> (https://aliax.xyz)",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "homepage": "https://aliax.xyz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aliax-xyz/aliax-sdk.git",
+    "directory": "aliax-node-sdk"
+  },
+  "bugs": {
+    "url": "https://github.com/aliax-xyz/aliax-sdk/issues"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "ai-agents",
+    "ai-browser",
+    "playwright",
+    "vlm",
+    "set-of-mark",
+    "set-of-marks",
+    "browser-automation",
+    "computer-use",
+    "rpa",
+    "web-scraping",
+    "llm",
+    "web-agents",
+    "aliax"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/cjs-stub.cjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "build:tests": "tsc -p tsconfig.json && node scripts/copy-assets.mjs",
+    "prepublishOnly": "npm run build",
+    "pretest": "npm run build:tests",
+    "test": "node --test dist/tests/*.js"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40.0 <2"
+  },
+  "peerDependenciesMeta": {
+    "playwright": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "playwright": "^1.61.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "_domMapperIntegrity": "sha256-da3b1232a6f499eeb9b6e803899e28ea1a723d47c7f9c7bf535415fa6429a6bf"
+}
